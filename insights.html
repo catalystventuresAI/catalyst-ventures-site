@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Insights — Catalyst Ventures</title>
+<meta name="description" content="Perspectives on AI strategy, commercialization, ecosystems, responsible AI, cybersecurity, and the applied AI economy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .feature-post {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+    border-radius: 18px;
+    padding: 36px;
+    margin-bottom: 48px;
+    transition: border-color .2s;
+  }
+  .feature-post:hover { border-color: var(--border-strong); }
+  .feature-post__visual {
+    aspect-ratio: 16/11;
+    background:
+      radial-gradient(ellipse 80% 60% at 30% 30%, rgba(79,140,255,0.30), transparent 60%),
+      radial-gradient(ellipse 80% 60% at 70% 70%, rgba(110,231,211,0.20), transparent 60%),
+      linear-gradient(135deg, #0e1014, #14171d);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-post__visual::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+            mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  }
+  @media (max-width: 820px) {
+    .feature-post { grid-template-columns: 1fr; padding: 24px; }
+  }
+
+  .resource-card {
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-elevated) 100%);
+    border: 1px solid var(--border-default);
+    border-radius: 18px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s, border-color .25s;
+  }
+  .resource-card:hover { transform: translateY(-2px); border-color: var(--accent-blue); }
+  .resource-card::before {
+    content: "";
+    position: absolute; top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(79,140,255,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .resource-card h3 { margin: 14px 0 8px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="4" cy="6" r="1.6" fill="#4f8cff"/><circle cx="20" cy="6" r="1.6" fill="#6ee7d3"/><circle cx="4" cy="18" r="1.6" fill="#9c8cff"/><circle cx="20" cy="18" r="1.6" fill="#c6cbd6"/><path d="M4 6 L12 12 L20 6 M4 18 L12 12 L20 18" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/></svg></span>
+      <span>Catalyst Ventures</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="advisory.html">Advisory</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="ecosystem.html">Ecosystem</a>
+      <a href="insights.html" class="is-active">Insights</a>
+    </nav>
+    <a class="nav__cta" href="contact.html">Book a Consultation →</a>
+    <button class="nav__menu-btn" data-nav-toggle aria-label="Menu"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="page-hero" data-screen-label="01 Insights Hero">
+  <div class="container" style="position: relative; z-index: 1;">
+    <p class="eyebrow">Insights &amp; Perspectives</p>
+    <h1 class="page-hero__title grad-text">Perspectives from<br>the applied AI&nbsp;frontier.</h1>
+    <p class="page-hero__sub">
+      Strategic essays, sector briefings, and field notes on AI strategy, commercialization,
+      ecosystems, responsible AI, cybersecurity, and emerging technology.
+    </p>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="section section--tight" data-screen-label="02 Posts">
+  <div class="container">
+
+    <div class="filter-bar" id="filters">
+      <button class="pill is-active" data-cat="all">All</button>
+      <button class="pill" data-cat="AI Strategy">AI Strategy</button>
+      <button class="pill" data-cat="Responsible AI">Responsible AI</button>
+      <button class="pill" data-cat="Commercialization">Commercialization</button>
+      <button class="pill" data-cat="AI Ecosystems">AI Ecosystems</button>
+      <button class="pill" data-cat="Cybersecurity">Cybersecurity</button>
+      <button class="pill" data-cat="Agentic AI">Agentic AI</button>
+      <button class="pill" data-cat="Startup Growth">Startup Growth</button>
+      <button class="pill" data-cat="AI Policy">AI Policy</button>
+    </div>
+
+    <!-- Featured -->
+    <article class="feature-post" data-cat="AI Strategy">
+      <div class="feature-post__visual"></div>
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-blue-2); margin-bottom: 14px;">FEATURED · AI STRATEGY</div>
+        <h2 style="font-size: clamp(26px, 3vw, 38px); line-height: 1.1; margin-bottom: 16px;">Moving Beyond Pilots: A Framework for Enterprise AI Adoption</h2>
+        <p>Most enterprise AI programs stall at the same four gates — data, talent, governance, and operating model. A practical framework for designing through them, with the executive cadence and capital allocation required to make AI actually compound.</p>
+        <div style="display: flex; gap: 18px; margin-top: 22px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">
+          <span>11 MIN READ</span><span>Q4 2026</span><span>R. GOEHRING</span>
+        </div>
+        <a class="btn btn--ghost" href="#" style="margin-top: 24px;">Read perspective →</a>
+      </div>
+    </article>
+
+    <div class="grid grid--3" id="post-grid">
+      <article class="post-card" data-cat="Commercialization">
+        <div class="post-card__meta"><span class="post-card__cat">COMMERCIALIZATION</span><span>8 MIN</span></div>
+        <h3>Why Most AI Startups Misprice the GTM Problem</h3>
+        <p>Product-market fit in AI looks different. A field guide for founders raising their next round.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="AI Policy">
+        <div class="post-card__meta"><span class="post-card__cat">AI POLICY</span><span>14 MIN</span></div>
+        <h3>Canada's Sovereign AI Window — and How to Use It</h3>
+        <p>Sovereign infrastructure, applied AI talent, and the economic case for moving in the next 24 months.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="Agentic AI">
+        <div class="post-card__meta"><span class="post-card__cat">AGENTIC AI</span><span>9 MIN</span></div>
+        <h3>The Digital Workforce is Already Here</h3>
+        <p>Agentic AI in the operating layer — how leading enterprises are sequencing the first wave.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="Responsible AI">
+        <div class="post-card__meta"><span class="post-card__cat">RESPONSIBLE AI</span><span>7 MIN</span></div>
+        <h3>Governance That Doesn't Slow You Down</h3>
+        <p>Practical responsible-AI architecture for organizations that need to ship.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="AI Ecosystems">
+        <div class="post-card__meta"><span class="post-card__cat">AI ECOSYSTEMS</span><span>10 MIN</span></div>
+        <h3>Building Competitive AI Clusters</h3>
+        <p>What the next generation of AI hubs is doing differently — capital, talent, and customer access.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="Cybersecurity">
+        <div class="post-card__meta"><span class="post-card__cat">CYBERSECURITY</span><span>12 MIN</span></div>
+        <h3>The New Threat Surface: AI Meets the Adversary</h3>
+        <p>How AI rewrites both offense and defense — and what boards need to understand now.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="Startup Growth">
+        <div class="post-card__meta"><span class="post-card__cat">STARTUP GROWTH</span><span>6 MIN</span></div>
+        <h3>The First 10 Enterprise Customers</h3>
+        <p>How AI-native founders should think about land, expand, and reference customer flywheels.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="AI Strategy">
+        <div class="post-card__meta"><span class="post-card__cat">AI STRATEGY</span><span>9 MIN</span></div>
+        <h3>The Executive's Quarterly AI Cadence</h3>
+        <p>What a real operating rhythm looks like for an AI-first leadership team.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+      <article class="post-card" data-cat="Commercialization">
+        <div class="post-card__meta"><span class="post-card__cat">COMMERCIALIZATION</span><span>11 MIN</span></div>
+        <h3>Pricing AI Products in a Cost-Curve Collapse</h3>
+        <p>Why traditional SaaS pricing breaks under AI economics — and the models that are emerging instead.</p>
+        <span class="post-card__link">Read →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section section--bordered" id="briefing" data-screen-label="03 Resources">
+  <div class="container">
+    <p class="eyebrow">Resources</p>
+    <h2 style="max-width: 18ch; margin-bottom: 40px;">Briefings, assessments, and media.</h2>
+
+    <div class="grid grid--3">
+      <a class="resource-card" id="briefing-card" href="contact.html?type=briefing">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-blue-2);">EXECUTIVE BRIEFING · PDF</div>
+        <h3>The State of Applied AI in Canada</h3>
+        <p>Strategic briefing on the Canadian AI economy — companies, capital, infrastructure, policy, and the commercialization opportunity.</p>
+        <div style="margin-top: 22px;" class="btn btn--link">Download →</div>
+      </a>
+
+      <a class="resource-card" id="assessment" href="contact.html?type=assessment">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-cyan);">INTERACTIVE · 12 QUESTIONS</div>
+        <h3>AI Readiness Assessment</h3>
+        <p>A scoped executive questionnaire to benchmark your organization's AI strategy, capability, governance, and operating model.</p>
+        <div style="margin-top: 22px;" class="btn btn--link">Start assessment →</div>
+      </a>
+
+      <a class="resource-card" id="media" href="contact.html?type=media">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-violet);">MEDIA · PRESS KIT</div>
+        <h3>Press &amp; Media Kit</h3>
+        <p>Bio, headshots, speaking topics, logos, and press mentions for journalists, event producers, and partners.</p>
+        <div style="margin-top: 22px;" class="btn btn--link">Request kit →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__inner">
+    <p class="eyebrow" style="justify-content: center;">Stay in the loop</p>
+    <h2 class="grad-text">Subscribe to the briefing.</h2>
+    <p style="margin-top: 22px; color: var(--text-secondary);">Quarterly insights on applied AI strategy, ecosystems, and commercialization. No noise.</p>
+    <form style="display: flex; gap: 10px; justify-content: center; margin-top: 32px; flex-wrap: wrap; max-width: 460px; margin-left: auto; margin-right: auto;" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Subscribed ✓';">
+      <input type="email" placeholder="your@email.com" required style="flex: 1; min-width: 220px; background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 999px; padding: 13px 18px; color: var(--text-primary); font-family: var(--font-body);">
+      <button class="btn btn--primary" type="submit">Subscribe →</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand footer__col">
+        <a class="brand" href="index.html">
+          <span class="brand__mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="4" cy="6" r="1.6" fill="#4f8cff"/><circle cx="20" cy="6" r="1.6" fill="#6ee7d3"/><circle cx="4" cy="18" r="1.6" fill="#9c8cff"/><circle cx="20" cy="18" r="1.6" fill="#c6cbd6"/><path d="M4 6 L12 12 L20 6 M4 18 L12 12 L20 18" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/></svg></span>
+          <span>Catalyst Ventures</span>
+        </a>
+        <p>Strategic AI advisory and ecosystem leadership for the applied AI economy.</p>
+      </div>
+      <div class="footer__col"><h4>Firm</h4><ul><li><a href="about.html">About</a></li><li><a href="advisory.html">Advisory Services</a></li><li><a href="ecosystem.html">Ecosystem &amp; Leadership</a></li><li><a href="speaking.html">Speaking &amp; Media</a></li></ul></div>
+      <div class="footer__col"><h4>Resources</h4><ul><li><a href="insights.html">Insights</a></li><li><a href="insights.html#assessment">AI Readiness Assessment</a></li><li><a href="insights.html#briefing">Executive Briefing</a></li><li><a href="insights.html#media">Media Kit</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="contact.html?type=speaking">Speaking inquiry</a></li><li><a href="contact.html?type=advisory">Advisory engagement</a></li><li><a href="contact.html?type=partnership">Partnership</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Catalyst Ventures</span>
+      <span>Vancouver · British Columbia · Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // Filter pills
+  (function() {
+    const pills = document.querySelectorAll('#filters .pill');
+    const cards = document.querySelectorAll('#post-grid .post-card, .feature-post');
+    pills.forEach(p => {
+      p.addEventListener('click', () => {
+        pills.forEach(x => x.classList.remove('is-active'));
+        p.classList.add('is-active');
+        const cat = p.dataset.cat;
+        cards.forEach(c => {
+          const match = cat === 'all' || c.dataset.cat === cat;
+          c.style.display = match ? '' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

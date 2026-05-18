@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ecosystem &amp; Leadership — Catalyst Ventures</title>
+<meta name="description" content="AI ecosystem leadership across British Columbia, Canada, and international markets — provincial networks, national strategy, industry collaboration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .ecomap {
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    height: 540px;
+    overflow: hidden;
+  }
+  .ecomap canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ecomap__legend {
+    position: absolute;
+    top: 18px; left: 18px;
+    display: grid;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: rgba(0,0,0,0.5);
+    padding: 12px 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+  }
+  .ecomap__legend span { display: flex; align-items: center; gap: 8px; }
+  .ecomap__legend span::before {
+    content: "";
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--c, #fff);
+    box-shadow: 0 0 8px var(--c, #fff);
+  }
+  .ecomap__overlay {
+    position: absolute;
+    bottom: 18px; right: 18px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: rgba(0,0,0,0.5);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="4" cy="6" r="1.6" fill="#4f8cff"/><circle cx="20" cy="6" r="1.6" fill="#6ee7d3"/><circle cx="4" cy="18" r="1.6" fill="#9c8cff"/><circle cx="20" cy="18" r="1.6" fill="#c6cbd6"/><path d="M4 6 L12 12 L20 6 M4 18 L12 12 L20 18" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/></svg></span>
+      <span>Catalyst Ventures</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="advisory.html">Advisory</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="ecosystem.html" class="is-active">Ecosystem</a>
+      <a href="insights.html">Insights</a>
+    </nav>
+    <a class="nav__cta" href="contact.html">Book a Consultation →</a>
+    <button class="nav__menu-btn" data-nav-toggle aria-label="Menu"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="page-hero" data-screen-label="01 Ecosystem Hero">
+  <div class="container" style="position: relative; z-index: 1;">
+    <p class="eyebrow">Ecosystem &amp; Leadership</p>
+    <h1 class="page-hero__title grad-text">Building AI ecosystems<br>that scale.</h1>
+    <p class="page-hero__sub">
+      A different kind of advisory firm — embedded in the ecosystems we help organizations
+      navigate. Provincial leadership, national engagement, and international partnerships
+      that translate into real opportunity for our clients.
+    </p>
+  </div>
+</section>
+
+<!-- ECOSYSTEM MAP -->
+<section class="section section--tight" data-screen-label="02 Map">
+  <div class="container">
+    <div class="ecomap">
+      <canvas id="eco-canvas" aria-label="Ecosystem network visualization"></canvas>
+      <div class="ecomap__legend">
+        <span style="--c: #6ba2ff;">AI Companies</span>
+        <span style="--c: #6ee7d3;">Capital</span>
+        <span style="--c: #9c8cff;">Public Sector</span>
+        <span style="--c: #c6cbd6;">Academic</span>
+        <span style="--c: #ffffff;">Catalyst</span>
+      </div>
+      <div class="ecomap__overlay">BC AI Ecosystem · Live Network</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTIONS -->
+<section class="section section--bordered" data-screen-label="03 Sections">
+  <div class="container">
+
+    <div class="detail-row" style="border-top: none; padding-top: 0;">
+      <div>
+        <div class="detail-row__num">01 / LEADERSHIP</div>
+        <h2>AI Network Leadership</h2>
+        <p>Catalyst Ventures leads provincial ecosystem development through the <strong style="color: var(--text-primary);">AI Network of BC</strong> — convening AI companies, industry, government, and academic partners around a coordinated provincial AI strategy.</p>
+      </div>
+      <ul class="detail-row__includes">
+        <li>Provincial ecosystem growth</li>
+        <li>AI company directory</li>
+        <li>Industry development</li>
+        <li>Partnership programs</li>
+        <li>Adoption initiatives</li>
+        <li>Convening &amp; events</li>
+      </ul>
+    </div>
+
+    <div class="detail-row">
+      <div>
+        <div class="detail-row__num">02 / NATIONAL</div>
+        <h2>National AI Strategy</h2>
+        <p>Active in Canada's national conversation on commercialization, sovereign AI, and applied AI leadership — connecting provincial strength to federal and economic-development policy direction.</p>
+      </div>
+      <ul class="detail-row__includes">
+        <li>Commercialization</li>
+        <li>Sovereign AI</li>
+        <li>Applied AI leadership</li>
+        <li>Economic competitiveness</li>
+        <li>Industry policy input</li>
+        <li>Cross-province coordination</li>
+      </ul>
+    </div>
+
+    <div class="detail-row">
+      <div>
+        <div class="detail-row__num">03 / INDUSTRY</div>
+        <h2>Industry Collaboration</h2>
+        <p>Founding Director of the <strong style="color: var(--text-primary);">AI Chief Executive Council</strong> at BC Tech Association — a CEO-level forum for AI adoption, commercialization, and ecosystem coordination across British Columbia.</p>
+      </div>
+      <ul class="detail-row__includes">
+        <li>Public / private partnerships</li>
+        <li>Innovation initiatives</li>
+        <li>Academic collaboration</li>
+        <li>Startup ecosystem support</li>
+        <li>CEO-level convening</li>
+        <li>Industry working groups</li>
+      </ul>
+    </div>
+
+    <div class="detail-row">
+      <div>
+        <div class="detail-row__num">04 / INTERNATIONAL</div>
+        <h2>International Engagement</h2>
+        <p>Representing British Columbia and Canadian applied AI at international conferences, trade missions, and ecosystem partnerships — building the bilateral relationships that move capital, talent, and customers.</p>
+      </div>
+      <ul class="detail-row__includes">
+        <li>Trade missions</li>
+        <li>International conferences</li>
+        <li>Ecosystem partnerships</li>
+        <li>Global positioning</li>
+        <li>Bilateral programs</li>
+        <li>Investor relations</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- AFFILIATIONS -->
+<section class="section section--bordered" data-screen-label="04 Affiliations">
+  <div class="container">
+    <p class="eyebrow">Affiliations &amp; Roles</p>
+    <h2 style="max-width: 18ch; margin-bottom: 40px;">Active roles across the ecosystem.</h2>
+    <div class="kv-row" style="border-top: 1px solid var(--border-subtle);">
+      <div class="kv-row__label">Wisr AI</div>
+      <div class="kv-row__value"><strong style="color: var(--text-primary);">Founder &amp; CEO.</strong> Agentic AI for risk and intelligence. Active operating company driving Catalyst's applied AI perspective.</div>
+    </div>
+    <div class="kv-row">
+      <div class="kv-row__label">AI Network of BC</div>
+      <div class="kv-row__value"><strong style="color: var(--text-primary);">Executive Director.</strong> Provincial AI ecosystem — companies, programs, and adoption initiatives.</div>
+    </div>
+    <div class="kv-row">
+      <div class="kv-row__label">BC Tech Association</div>
+      <div class="kv-row__value"><strong style="color: var(--text-primary);">Founding Director, AI Chief Executive Council.</strong> CEO-level convening for AI leaders across British Columbia.</div>
+    </div>
+    <div class="kv-row">
+      <div class="kv-row__label">Industry &amp; Academic</div>
+      <div class="kv-row__value">Advisor and contributor across innovation programs, university initiatives, and economic development bodies focused on the AI economy.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__inner">
+    <p class="eyebrow" style="justify-content: center;">Partnership</p>
+    <h2 class="grad-text">Build with the ecosystem,<br>not around it.</h2>
+    <p style="margin-top: 22px; color: var(--text-secondary);">Industry associations, governments, and consortia — explore an ecosystem development engagement.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; margin-top: 32px; flex-wrap: wrap;">
+      <a class="btn btn--primary" href="contact.html?type=partnership">Partnership Inquiry
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="advisory.html">Advisory Services</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand footer__col">
+        <a class="brand" href="index.html">
+          <span class="brand__mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="4" cy="6" r="1.6" fill="#4f8cff"/><circle cx="20" cy="6" r="1.6" fill="#6ee7d3"/><circle cx="4" cy="18" r="1.6" fill="#9c8cff"/><circle cx="20" cy="18" r="1.6" fill="#c6cbd6"/><path d="M4 6 L12 12 L20 6 M4 18 L12 12 L20 18" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/></svg></span>
+          <span>Catalyst Ventures</span>
+        </a>
+        <p>Strategic AI advisory and ecosystem leadership for the applied AI economy.</p>
+      </div>
+      <div class="footer__col"><h4>Firm</h4><ul><li><a href="about.html">About</a></li><li><a href="advisory.html">Advisory Services</a></li><li><a href="ecosystem.html">Ecosystem &amp; Leadership</a></li><li><a href="speaking.html">Speaking &amp; Media</a></li></ul></div>
+      <div class="footer__col"><h4>Resources</h4><ul><li><a href="insights.html">Insights</a></li><li><a href="insights.html#assessment">AI Readiness Assessment</a></li><li><a href="insights.html#briefing">Executive Briefing</a></li><li><a href="insights.html#media">Media Kit</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="contact.html?type=speaking">Speaking inquiry</a></li><li><a href="contact.html?type=advisory">Advisory engagement</a></li><li><a href="contact.html?type=partnership">Partnership</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Catalyst Ventures</span>
+      <span>Vancouver · British Columbia · Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // Larger, denser ecosystem map for this page
+  (function() {
+    const canvas = document.getElementById('eco-canvas');
+    const ctx = canvas.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    let W = 0, H = 0;
+
+    function resize() {
+      const r = canvas.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+
+    // Build a denser graph
+    const categories = [
+      { color: '#6ba2ff', count: 28 },   // AI companies
+      { color: '#6ee7d3', count: 12 },   // Capital
+      { color: '#9c8cff', count: 10 },   // Public Sector
+      { color: '#c6cbd6', count: 10 },   // Academic
+    ];
+
+    const nodes = [{ x: 0.5, y: 0.5, r: 5.5, color: '#ffffff', vx: 0, vy: 0, isHub: true }];
+    categories.forEach((cat, ci) => {
+      for (let i = 0; i < cat.count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 0.18 + Math.random() * 0.30;
+        nodes.push({
+          x: 0.5 + Math.cos(angle) * dist,
+          y: 0.5 + Math.sin(angle) * dist * 0.65,
+          r: 1.4 + Math.random() * 1.4,
+          color: cat.color,
+          cat: ci,
+          vx: (Math.random() - 0.5) * 0.00025,
+          vy: (Math.random() - 0.5) * 0.00025,
+        });
+      }
+    });
+
+    // Build edges: each non-hub node to nearest 1-2 neighbors + to hub at low strength
+    const edges = [];
+    for (let i = 1; i < nodes.length; i++) {
+      edges.push({ a: 0, b: i, s: 0.15 });
+      const dists = [];
+      for (let j = 1; j < nodes.length; j++) {
+        if (i === j) continue;
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        dists.push({ j, d: dx*dx + dy*dy });
+      }
+      dists.sort((a, b) => a.d - b.d);
+      for (let k = 0; k < 2; k++) {
+        if (dists[k] && dists[k].d < 0.06) {
+          edges.push({ a: i, b: dists[k].j, s: 0.4 });
+        }
+      }
+    }
+
+    // Pulses
+    const pulses = [];
+    for (let i = 0; i < 16; i++) {
+      pulses.push({
+        edge: edges[Math.floor(Math.random() * edges.length)],
+        t: Math.random(),
+        speed: 0.0010 + Math.random() * 0.002,
+      });
+    }
+
+    let last = performance.now();
+    let raf;
+    function frame(now) {
+      const dt = Math.min(60, now - last); last = now;
+      ctx.clearRect(0, 0, W, H);
+
+      // Drift
+      nodes.forEach(n => {
+        if (n.isHub) return;
+        n.x += n.vx * dt; n.y += n.vy * dt;
+        // gentle pull toward original radius band
+        const dx = n.x - 0.5, dy = n.y - 0.5;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d > 0.55) { n.vx -= dx * 0.0000004 * dt; n.vy -= dy * 0.0000004 * dt; }
+        if (d < 0.18) { n.vx += dx * 0.0000004 * dt; n.vy += dy * 0.0000004 * dt; }
+      });
+
+      // Edges
+      edges.forEach(e => {
+        const A = nodes[e.a], B = nodes[e.b];
+        ctx.beginPath();
+        ctx.moveTo(A.x * W, A.y * H);
+        ctx.lineTo(B.x * W, B.y * H);
+        ctx.strokeStyle = `rgba(160,180,220,${0.08 * e.s})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+
+      // Pulses
+      pulses.forEach(p => {
+        p.t += p.speed * dt;
+        if (p.t > 1) {
+          p.t = 0;
+          p.edge = edges[Math.floor(Math.random() * edges.length)];
+          p.speed = 0.0010 + Math.random() * 0.002;
+        }
+        const A = nodes[p.edge.a], B = nodes[p.edge.b];
+        const x = (A.x + (B.x - A.x) * p.t) * W;
+        const y = (A.y + (B.y - A.y) * p.t) * H;
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, 9);
+        grd.addColorStop(0, 'rgba(110,231,211,0.85)');
+        grd.addColorStop(1, 'rgba(110,231,211,0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath(); ctx.arc(x, y, 9, 0, Math.PI * 2); ctx.fill();
+      });
+
+      // Nodes
+      nodes.forEach(n => {
+        const x = n.x * W, y = n.y * H;
+        const glow = ctx.createRadialGradient(x, y, 0, x, y, n.r * 6);
+        glow.addColorStop(0, n.color + '99');
+        glow.addColorStop(1, n.color + '00');
+        ctx.fillStyle = glow;
+        ctx.beginPath(); ctx.arc(x, y, n.r * 6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = n.color;
+        ctx.beginPath(); ctx.arc(x, y, n.r, 0, Math.PI * 2); ctx.fill();
+      });
+
+      // Hub label
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '500 11px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('CATALYST', 0.5 * W, 0.5 * H - 14);
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    resize();
+    raf = requestAnimationFrame(frame);
+    new ResizeObserver(resize).observe(canvas);
+  })();
+</script>
+
+</body>
+</html>

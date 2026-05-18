@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Catalyst Ventures</title>
+<meta name="description" content="Start a conversation with Catalyst Ventures — advisory, speaking, partnership, and executive briefing inquiries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+  }
+  @media (max-width: 920px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .inquiry-card {
+    padding: 20px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    text-align: left;
+    background: var(--bg-surface);
+    color: inherit;
+    font: inherit;
+    transition: border-color .2s, background .2s, transform .2s;
+  }
+  .inquiry-card:hover { border-color: var(--border-strong); background: var(--bg-elevated); }
+  .inquiry-card.is-active {
+    border-color: var(--accent-blue);
+    background: rgba(79,140,255,0.06);
+  }
+  .inquiry-card__title {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .inquiry-card__sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .contact-side {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="4" cy="6" r="1.6" fill="#4f8cff"/><circle cx="20" cy="6" r="1.6" fill="#6ee7d3"/><circle cx="4" cy="18" r="1.6" fill="#9c8cff"/><circle cx="20" cy="18" r="1.6" fill="#c6cbd6"/><path d="M4 6 L12 12 L20 6 M4 18 L12 12 L20 18" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/></svg></span>
+      <span>Catalyst Ventures</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="advisory.html">Advisory</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="ecosystem.html">Ecosystem</a>
+      <a href="insights.html">Insights</a>
+    </nav>
+    <a class="nav__cta is-active" href="contact.html">Book a Consultation →</a>
+    <button class="nav__menu-btn" data-nav-toggle aria-label="Menu"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="page-hero" data-screen-label="01 Contact Hero">
+  <div class="container" style="position: relative; z-index: 1;">
+    <p class="eyebrow">Contact</p>
+    <h1 class="page-hero__title grad-text">Let's build<br>what's next.</h1>
+    <p class="page-hero__sub">
+      Whether you are an enterprise exploring AI transformation, a startup scaling an
+      innovation strategy, an investor evaluating market opportunities, or a public
+      sector organization shaping future policy — Catalyst Ventures helps organizations
+      navigate the future of applied AI.
+    </p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section" data-screen-label="02 Form">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Side panel: inquiry types + meta -->
+      <div class="contact-side">
+        <p class="eyebrow">Inquiry Type</p>
+        <div style="display: grid; gap: 10px; margin-bottom: 36px;">
+          <button class="inquiry-card is-active" data-type="advisory">
+            <span class="inquiry-card__title">Advisory Engagement</span>
+            <span class="inquiry-card__sub">Executive strategy, GTM, governance, transformation</span>
+          </button>
+          <button class="inquiry-card" data-type="speaking">
+            <span class="inquiry-card__title">Speaking Inquiry</span>
+            <span class="inquiry-card__sub">Keynote, panel, workshop, executive session</span>
+          </button>
+          <button class="inquiry-card" data-type="briefing">
+            <span class="inquiry-card__title">Executive Briefing</span>
+            <span class="inquiry-card__sub">Board / leadership team intensive</span>
+          </button>
+          <button class="inquiry-card" data-type="partnership">
+            <span class="inquiry-card__title">Partnership Inquiry</span>
+            <span class="inquiry-card__sub">Ecosystem, industry, public sector collaboration</span>
+          </button>
+          <button class="inquiry-card" data-type="general">
+            <span class="inquiry-card__title">General / Media</span>
+            <span class="inquiry-card__sub">Other inquiries, media, press</span>
+          </button>
+        </div>
+
+        <p class="eyebrow">Office</p>
+        <div class="kv-row" style="border-top: 1px solid var(--border-subtle); padding: 16px 0; grid-template-columns: 110px 1fr;">
+          <div class="kv-row__label">Location</div>
+          <div class="kv-row__value">Vancouver, British Columbia</div>
+        </div>
+        <div class="kv-row" style="padding: 16px 0; grid-template-columns: 110px 1fr;">
+          <div class="kv-row__label">Email</div>
+          <div class="kv-row__value">hello@catalystventures.ca</div>
+        </div>
+        <div class="kv-row" style="padding: 16px 0; grid-template-columns: 110px 1fr;">
+          <div class="kv-row__label">Response</div>
+          <div class="kv-row__value">Within 2 business days</div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div>
+        <form class="form" id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-success').classList.add('is-visible'); this.reset();">
+          <div class="form__row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+            <div class="field">
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="org" required placeholder="Company / org">
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="name@org.com">
+            </div>
+            <div class="field">
+              <label for="role">Role</label>
+              <input type="text" id="role" name="role" placeholder="CEO, CIO, Director…">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="area">Area of Interest</label>
+            <select id="area" name="area" required>
+              <option value="">Select an area</option>
+              <option>Executive AI Strategy</option>
+              <option>AI Commercialization &amp; GTM</option>
+              <option>Ecosystem &amp; Industry Development</option>
+              <option>Responsible AI &amp; Governance</option>
+              <option>Speaking / Workshops</option>
+              <option>AI Readiness Assessment</option>
+              <option>Investor / Diligence Support</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us about your organization, the moment you're in, and what good would look like."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="timeline">Timeline (optional)</label>
+            <select id="timeline" name="timeline">
+              <option value="">Select a timeline</option>
+              <option>Immediate (this month)</option>
+              <option>Near-term (1–3 months)</option>
+              <option>This quarter</option>
+              <option>This year</option>
+              <option>Exploring / no rush</option>
+            </select>
+          </div>
+
+          <button class="btn btn--primary form__submit" type="submit">
+            Send Inquiry
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="form__success" id="contact-success">
+            <strong>Thank you.</strong> Your inquiry has been received. Rob or a member of the team will be in touch within two business days.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK CONTACT -->
+<section class="section section--bordered section--tight" data-screen-label="03 Quick">
+  <div class="container">
+    <p class="eyebrow">Other ways to connect</p>
+    <div class="grid grid--3">
+      <div class="card">
+        <h3>Speaking Bureau</h3>
+        <p>Event producers, agents, and conference programmers — use the speaking inquiry path for fastest response.</p>
+        <a class="btn btn--link" href="contact.html?type=speaking" style="margin-top: 12px;">Speaking inquiry →</a>
+      </div>
+      <div class="card">
+        <h3>Investor &amp; Diligence</h3>
+        <p>VCs and strategics — diligence support, market context, ecosystem intros for AI-native opportunities.</p>
+        <a class="btn btn--link" href="contact.html?type=advisory" style="margin-top: 12px;">Advisory inquiry →</a>
+      </div>
+      <div class="card">
+        <h3>Press &amp; Media</h3>
+        <p>Journalists — quotes, expert commentary, and interview availability on AI strategy and policy.</p>
+        <a class="btn btn--link" href="insights.html#media" style="margin-top: 12px;">Request media kit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand footer__col">
+        <a class="brand" href="index.html">
+          <span class="brand__mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.4" fill="#fff"/><circle cx="4" cy="6" r="1.6" fill="#4f8cff"/><circle cx="20" cy="6" r="1.6" fill="#6ee7d3"/><circle cx="4" cy="18" r="1.6" fill="#9c8cff"/><circle cx="20" cy="18" r="1.6" fill="#c6cbd6"/><path d="M4 6 L12 12 L20 6 M4 18 L12 12 L20 18" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/></svg></span>
+          <span>Catalyst Ventures</span>
+        </a>
+        <p>Strategic AI advisory and ecosystem leadership for the applied AI economy.</p>
+      </div>
+      <div class="footer__col"><h4>Firm</h4><ul><li><a href="about.html">About</a></li><li><a href="advisory.html">Advisory Services</a></li><li><a href="ecosystem.html">Ecosystem &amp; Leadership</a></li><li><a href="speaking.html">Speaking &amp; Media</a></li></ul></div>
+      <div class="footer__col"><h4>Resources</h4><ul><li><a href="insights.html">Insights</a></li><li><a href="insights.html#assessment">AI Readiness Assessment</a></li><li><a href="insights.html#briefing">Executive Briefing</a></li><li><a href="insights.html#media">Media Kit</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="contact.html?type=speaking">Speaking inquiry</a></li><li><a href="contact.html?type=advisory">Advisory engagement</a></li><li><a href="contact.html?type=partnership">Partnership</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Catalyst Ventures</span>
+      <span>Vancouver · British Columbia · Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // Inquiry type cards
+  (function() {
+    const cards = document.querySelectorAll('.inquiry-card');
+    const areaSelect = document.getElementById('area');
+    const mapping = {
+      advisory: 'Executive AI Strategy',
+      speaking: 'Speaking / Workshops',
+      briefing: 'Executive AI Strategy',
+      partnership: 'Ecosystem & Industry Development',
+      general: 'Other',
+    };
+    function setType(type) {
+      cards.forEach(c => c.classList.toggle('is-active', c.dataset.type === type));
+      const target = mapping[type];
+      if (target && areaSelect) {
+        for (const opt of areaSelect.options) {
+          if (opt.text === target || opt.text === target.replace('&', '&amp;')) {
+            areaSelect.value = opt.value || opt.text;
+            break;
+          }
+        }
+      }
+    }
+    cards.forEach(c => c.addEventListener('click', (e) => {
+      e.preventDefault();
+      setType(c.dataset.type);
+    }));
+    // Pre-select via ?type=
+    const params = new URLSearchParams(location.search);
+    const t = params.get('type');
+    if (t && mapping[t]) setType(t);
+  })();
+</script>
+
+</body>
+</html>
