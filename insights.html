@@ -237,10 +237,20 @@
     <p class="eyebrow" style="justify-content: center;">Stay in the loop</p>
     <h2 class="grad-text">Subscribe to the briefing.</h2>
     <p style="margin-top: 22px; color: var(--text-secondary);">Quarterly insights on applied AI strategy, ecosystems, and commercialization. No noise.</p>
-    <form style="display: flex; gap: 10px; justify-content: center; margin-top: 32px; flex-wrap: wrap; max-width: 460px; margin-left: auto; margin-right: auto;" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Subscribed ✓';">
-      <input type="email" placeholder="your@email.com" required style="flex: 1; min-width: 220px; background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 999px; padding: 13px 18px; color: var(--text-primary); font-family: var(--font-body);">
-      <button class="btn btn--primary" type="submit">Subscribe →</button>
+    <form
+      id="newsletter-form"
+      action="https://formspree.io/f/mpqnzvog"
+      method="POST"
+      style="display: flex; gap: 10px; justify-content: center; margin-top: 32px; flex-wrap: wrap; max-width: 460px; margin-left: auto; margin-right: auto;"
+    >
+      <input type="hidden" name="_subject" value="New Catalyst newsletter subscriber">
+      <input type="hidden" name="source" value="catalystventures.ca/insights">
+      <!-- Honeypot -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+      <input type="email" name="email" placeholder="your@email.com" required style="flex: 1; min-width: 220px; background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 999px; padding: 13px 18px; color: var(--text-primary); font-family: var(--font-body);">
+      <button class="btn btn--primary" type="submit" id="newsletter-btn">Subscribe →</button>
     </form>
+    <p id="newsletter-msg" style="margin-top: 16px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--accent-cyan); min-height: 18px;"></p>
   </div>
 </section>
 
@@ -283,6 +293,51 @@
           c.style.display = match ? '' : 'none';
         });
       });
+    });
+  })();
+
+  // Newsletter subscribe (Formspree AJAX)
+  (function() {
+    const form = document.getElementById('newsletter-form');
+    const btn  = document.getElementById('newsletter-btn');
+    const msg  = document.getElementById('newsletter-msg');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.style.color = '';
+      msg.textContent = '';
+
+      if (form.action.indexOf('YOUR_NEWSLETTER_FORM_ID') > -1) {
+        msg.style.color = '#ff9a9a';
+        msg.textContent = 'Newsletter endpoint not yet configured.';
+        return;
+      }
+
+      btn.disabled = true;
+      const original = btn.textContent;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' },
+        });
+        if (res.ok) {
+          msg.style.color = 'var(--accent-cyan)';
+          msg.textContent = '✓ SUBSCRIBED — CHECK YOUR INBOX TO CONFIRM';
+          form.reset();
+        } else {
+          throw new Error('Submit failed');
+        }
+      } catch (err) {
+        msg.style.color = '#ff9a9a';
+        msg.textContent = 'SOMETHING WENT WRONG — PLEASE TRY AGAIN';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
   })();
 </script>

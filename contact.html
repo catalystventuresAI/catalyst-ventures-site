@@ -136,7 +136,16 @@
 
       <!-- Form -->
       <div>
-        <form class="form" id="contact-form" onsubmit="event.preventDefault(); document.getElementById('contact-success').classList.add('is-visible'); this.reset();">
+        <form
+          class="form"
+          id="contact-form"
+          action="https://formspree.io/f/mlgveqop"
+          method="POST"
+        >
+          <!-- Routes the inquiry by type in your Formspree inbox -->
+          <input type="hidden" name="_subject" id="form-subject" value="New Catalyst Ventures inquiry">
+          <input type="hidden" name="inquiry_type" id="form-type" value="advisory">
+
           <div class="form__row">
             <div class="field">
               <label for="name">Name</label>
@@ -144,7 +153,7 @@
             </div>
             <div class="field">
               <label for="org">Organization</label>
-              <input type="text" id="org" name="org" required placeholder="Company / org">
+              <input type="text" id="org" name="organization" required placeholder="Company / org">
             </div>
           </div>
 
@@ -191,13 +200,19 @@
             </select>
           </div>
 
-          <button class="btn btn--primary form__submit" type="submit">
+          <!-- Honeypot — bots fill this, humans don't see it -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+
+          <button class="btn btn--primary form__submit" type="submit" id="form-submit-btn">
             Send Inquiry
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
 
           <div class="form__success" id="contact-success">
             <strong>Thank you.</strong> Your inquiry has been received. Rob or a member of the team will be in touch within two business days.
+          </div>
+          <div class="form__success" id="contact-error" style="background: rgba(255,120,120,0.08); border-color: rgba(255,120,120,0.3); color: #ff9a9a;">
+            <strong>Something went wrong.</strong> Please email <a href="mailto:hello@catalystventures.ca" style="color: inherit; text-decoration: underline;">hello@catalystventures.ca</a> directly.
           </div>
         </form>
       </div>
@@ -258,19 +273,24 @@
   (function() {
     const cards = document.querySelectorAll('.inquiry-card');
     const areaSelect = document.getElementById('area');
+    const typeField = document.getElementById('form-type');
+    const subjectField = document.getElementById('form-subject');
     const mapping = {
-      advisory: 'Executive AI Strategy',
-      speaking: 'Speaking / Workshops',
-      briefing: 'Executive AI Strategy',
-      partnership: 'Ecosystem & Industry Development',
-      general: 'Other',
+      advisory:    { area: 'Executive AI Strategy',              subject: 'Advisory engagement inquiry' },
+      speaking:    { area: 'Speaking / Workshops',               subject: 'Speaking inquiry' },
+      briefing:    { area: 'Executive AI Strategy',              subject: 'Executive briefing inquiry' },
+      partnership: { area: 'Ecosystem & Industry Development',   subject: 'Partnership inquiry' },
+      general:     { area: 'Other',                              subject: 'General inquiry' },
     };
     function setType(type) {
       cards.forEach(c => c.classList.toggle('is-active', c.dataset.type === type));
-      const target = mapping[type];
-      if (target && areaSelect) {
+      const m = mapping[type];
+      if (!m) return;
+      if (typeField)    typeField.value = type;
+      if (subjectField) subjectField.value = 'Catalyst Ventures — ' + m.subject;
+      if (areaSelect) {
         for (const opt of areaSelect.options) {
-          if (opt.text === target || opt.text === target.replace('&', '&amp;')) {
+          if (opt.text === m.area || opt.text === m.area.replace('&', '&amp;')) {
             areaSelect.value = opt.value || opt.text;
             break;
           }
@@ -285,6 +305,53 @@
     const params = new URLSearchParams(location.search);
     const t = params.get('type');
     if (t && mapping[t]) setType(t);
+  })();
+
+  // AJAX form submission — keeps user on the page
+  (function() {
+    const form = document.getElementById('contact-form');
+    const btn  = document.getElementById('form-submit-btn');
+    const okEl = document.getElementById('contact-success');
+    const errEl = document.getElementById('contact-error');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      okEl.classList.remove('is-visible');
+      errEl.classList.remove('is-visible');
+
+      // If the endpoint hasn't been configured yet, fall back to a friendly state
+      if (form.action.indexOf('YOUR_CONTACT_FORM_ID') > -1) {
+        errEl.innerHTML = '<strong>Form endpoint not yet configured.</strong> Replace <code>YOUR_CONTACT_FORM_ID</code> in <code>contact.html</code> with your Formspree form ID.';
+        errEl.classList.add('is-visible');
+        return;
+      }
+
+      btn.disabled = true;
+      const original = btn.innerHTML;
+      btn.innerHTML = 'Sending…';
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' },
+        });
+        if (res.ok) {
+          okEl.classList.add('is-visible');
+          form.reset();
+          okEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          throw new Error('Submit failed: ' + res.status);
+        }
+      } catch (err) {
+        errEl.classList.add('is-visible');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = original;
+      }
+    });
   })();
 </script>
 
