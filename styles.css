@@ -26,9 +26,9 @@
   --grad-line: linear-gradient(90deg, transparent, rgba(79,140,255,0.5), transparent);
 
   /* Type */
-  --font-display: "Space Grotesk", "Geist", system-ui, sans-serif;
-  --font-body:    "Geist", "Inter", system-ui, sans-serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  --font-display: "Spectral", Georgia, serif;
+  --font-body:    "Libre Franklin", system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
 
   /* Spacing */
   --pad-page: clamp(20px, 4vw, 56px);
@@ -93,20 +93,21 @@ img { max-width: 100%; display: block; }
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
   font-family: var(--font-mono);
   font-size: 12px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--accent-blue-2);
   margin: 0 0 22px;
 }
 .eyebrow::before {
   content: "";
-  width: 28px;
-  height: 1px;
+  width: 42px;
+  height: 2px;
   background: var(--accent-blue);
   display: inline-block;
+  flex: none;
 }
 
 /* =========================================================
@@ -115,7 +116,7 @@ img { max-width: 100%; display: block; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.02em;
   margin: 0;
   color: var(--text-primary);
@@ -125,23 +126,25 @@ h1, h2, h3, h4 {
 h1 {
   font-size: clamp(44px, 6.8vw, 96px);
   line-height: 1.02;
-  letter-spacing: -0.035em;
-  font-weight: 500;
+  letter-spacing: -0.025em;
+  font-weight: 300;
 }
 h2 {
   font-size: clamp(32px, 4vw, 56px);
   line-height: 1.05;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.015em;
 }
 h3 {
   font-size: clamp(20px, 1.6vw, 24px);
   line-height: 1.25;
   letter-spacing: -0.01em;
-  font-weight: 500;
+  font-weight: 400;
 }
 h4 {
-  font-size: 16px;
-  letter-spacing: 0.02em;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   font-weight: 500;
 }
 
@@ -190,11 +193,12 @@ p.lead {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  font-size: 17px;
+  gap: 12px;
+  font-family: "Libre Franklin", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11.5px;
   color: var(--text-primary);
 }
 .brand__mark {
@@ -212,9 +216,10 @@ p.lead {
   align-items: center;
 }
 .nav__links a {
-  font-size: 14px;
+  font-size: 13px;
+  font-family: var(--font-body);
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--text-secondary);
   transition: color .2s, background .2s;
 }
@@ -244,7 +249,7 @@ p.lead {
   width: 38px; height: 38px;
   border: 1px solid var(--border-default);
   background: transparent;
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--text-primary);
   margin-left: auto;
   cursor: pointer;
@@ -337,7 +342,7 @@ p.lead {
   position: relative;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 28px;
   transition: border-color .25s, background .25s, transform .25s;
 }
@@ -349,7 +354,7 @@ p.lead {
   width: 40px; height: 40px;
   display: inline-flex;
   align-items: center; justify-content: center;
-  border-radius: 10px;
+  border-radius: 4px;
   background: rgba(79,140,255,0.10);
   color: var(--accent-blue-2);
   margin-bottom: 18px;
@@ -572,7 +577,7 @@ p.lead {
     repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 12px),
     var(--bg-elevated);
   border: 1px solid var(--border-default);
-  border-radius: 18px;
+  border-radius: 4px;
   overflow: hidden;
 }
 .portrait__label {
@@ -616,7 +621,7 @@ p.lead {
   gap: 1px;
   background: var(--border-subtle);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: 4px;
   overflow: hidden;
 }
 .topic-list li {
@@ -698,7 +703,7 @@ p.lead {
 .post-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 26px 28px;
   display: flex;
   flex-direction: column;
@@ -848,7 +853,7 @@ p.lead {
 .field textarea {
   background: var(--bg-surface);
   border: 1px solid var(--border-default);
-  border-radius: 10px;
+  border-radius: 4px;
   padding: 13px 14px;
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -944,7 +949,7 @@ p.lead {
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
+  border-radius: 4px;
   overflow: hidden;
 }
 .stats__item {
